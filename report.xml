@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="7" time="0.320" timestamp="2024-01-22T16:07:58.440002" hostname="chapuis-HP-ProBook-440-G7"><testcase classname="tests.test_main_page" name="test_main" time="0.000" /><testcase classname="tests.test_main_page" name="test_main_2[city0]" time="0.032" /><testcase classname="tests.test_main_page" name="test_main_2[city1]" time="0.032" /><testcase classname="tests.test_main_page" name="test_main_2[city2]" time="0.038" /><testcase classname="tests.test_second_fichier" name="test_report_essai[city0]" time="0.033" /><testcase classname="tests.test_second_fichier" name="test_report_essai[city1]" time="0.033" /><testcase classname="tests.test_second_fichier" name="test_report_essai[city2]" time="0.038"><failure message="assert False">city = ['Blargoug', False]
+
+    @pytest.mark.parametrize("city", [["Poitiers",True], ["Paris",True],["Blargoug",False]])
+    def test_report_essai(city):
+        response = requests.get(
+            "http://api.openweathermap.org/data/2.5/weather?q="+city[0]+",fr&amp;appid="
+            + API_TOKEN
+        )
+        if city[1]:
+            assert response.status_code == HTTPStatus.OK, "Return should be OK"
+        else:
+&gt;           assert False
+E           assert False
+
+tests/test_second_fichier.py:20: AssertionError</failure></testcase></testsuite></testsuites>

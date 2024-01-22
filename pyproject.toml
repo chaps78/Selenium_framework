@@ -1,0 +1,44 @@
+[tool.black]
+line-length = 100
+target-version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.tox
+    | \.venv
+    | build
+    | db-data
+    | migrations
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+[tool.isort]
+line_length = 90
+indent = '    '
+multi_line_output = 3
+include_trailing_comma = 'True'
+use_parentheses = 'True'
+force_grid_wrap = 0
+skip = 'migrations/versions'
+
+[tool.poetry]
+name = "integration-tests"
+version = "0.1.0"
+description = "Integration tests"
+authors = ["cyrille.chapuis <cyrille.chapuis@external.aldebaran.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "*"
+pytest-html = "*"
+requests = "*"
